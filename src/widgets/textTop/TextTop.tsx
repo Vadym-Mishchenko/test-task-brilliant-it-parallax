@@ -1,10 +1,10 @@
 import { Button } from '@/components';
 import {
-  Container,
+  ContainerTextTop,
   Heading1,
   Heading2,
   Subheading,
-  ComtainerButton,
+  ContainerButton,
 } from './TextTop.styles';
 
 interface IProps {
@@ -13,7 +13,7 @@ interface IProps {
 
 export const TextTop = ({ screen }: IProps) => {
   return (
-    <Container>
+    <ContainerTextTop>
       <Heading1 $screen={screen}>
         A new economic primitive for funding decentralized AI
       </Heading1>
@@ -24,10 +24,10 @@ export const TextTop = ({ screen }: IProps) => {
         We track, rank and pay for the best open source decentralized LLMs to
         compete against OpenAI
       </Subheading>
-      <ComtainerButton>
+      <ContainerButton>
         <Button text="Buy Salt AI" size="big" hasBorder />
         <Button text="Try Now" size="big" />
-      </ComtainerButton>
-    </Container>
+      </ContainerButton>
+    </ContainerTextTop>
   );
 };

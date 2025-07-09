@@ -3,13 +3,14 @@ import styled, { css } from 'styled-components';
 interface IProps {
   $height: number;
   $fontSize: number;
+  $padding: string;
   $hasBorder?: boolean;
 }
 
 export const StyledButton = styled.button<IProps>`
   z-index: 0;
   position: relative;
-  padding: 22px 48px 24px;
+  padding: ${({ $padding }) => `${$padding}`};
   width: max-content;
   height: ${({ $height }) => `${$height}px`};
   border-radius: 91px;

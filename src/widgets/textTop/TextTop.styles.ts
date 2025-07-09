@@ -4,7 +4,7 @@ interface Iprops {
   $screen: number;
 }
 
-export const Container = styled.div`
+export const ContainerTextTop = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -56,7 +56,7 @@ export const Subheading = styled.p`
   color: #ffffff;
 `;
 
-export const ComtainerButton = styled.div`
+export const ContainerButton = styled.div`
   display: flex;
   gap: 1%;
 `;

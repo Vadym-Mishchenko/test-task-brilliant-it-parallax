@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TextTop } from '@/widgets';
+import { TextTop, TopButtons } from '@/widgets';
 import {
   BackgroundScroll,
   ContainerStaticPage,
   WrapperTextTop,
+  WrapperTopButtons,
 } from './MainPage.styles';
 
 const wrapperTextTopScreenStyles = {
@@ -61,7 +62,30 @@ export const MainPage = () => {
       </motion.div>
 
       <ContainerStaticPage>
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
+          {(currentScreen === 1 || currentScreen === 2) && (
+            <WrapperTopButtons
+              key="top-buttons"
+              initial={{ top: '-20%', opacity: 0 }}
+              animate={{
+                top: '2.96%',
+                opacity: 1,
+                transition: {
+                  duration: 0.6,
+                  ease: 'easeInOut',
+                  delay: currentScreen === 2 ? 0.1 : 0,
+                },
+              }}
+              exit={{
+                top: '-20%',
+                opacity: 0,
+                transition: { duration: 0.3, ease: 'easeIn' },
+              }}
+            >
+              <TopButtons />
+            </WrapperTopButtons>
+          )}
+
           {(currentScreen === 1 || currentScreen === 2) && (
             <WrapperTextTop
               key="text-top"
