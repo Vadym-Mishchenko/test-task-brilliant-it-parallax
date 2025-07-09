@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TextTop, TopButtons } from '@/widgets';
+import { Planet, TextTop, TopButtons } from '@/widgets';
 import {
   BackgroundScroll,
   ContainerStaticPage,
   WrapperTextTop,
   WrapperTopButtons,
+  WrapperPlanet,
 } from './MainPage.styles';
 
 const wrapperTextTopScreenStyles = {
@@ -20,6 +21,25 @@ const wrapperTextTopScreenStyles = {
     height: '39.44%',
     top: '17.22%',
     left: '4.17%',
+  },
+};
+
+const wrapperPlanetScreenStyles = {
+  1: {
+    top: '9.26%',
+    transform: 'rotate(177deg)',
+  },
+  2: {
+    top: '4.26%',
+    transform: 'rotate(180deg)',
+  },
+  3: {
+    top: '-4%',
+    transform: 'rotate(177deg)',
+  },
+  4: {
+    top: '-17%',
+    transform: 'rotate(172deg)',
   },
 };
 
@@ -114,6 +134,26 @@ export const MainPage = () => {
             </WrapperTextTop>
           )}
         </AnimatePresence>
+        {(currentScreen === 1 ||
+          currentScreen === 2 ||
+          currentScreen === 3 ||
+          currentScreen === 4) && (
+          <WrapperPlanet
+            key="planet"
+            initial={{
+              top: wrapperPlanetScreenStyles[currentScreen].top,
+              transform: wrapperPlanetScreenStyles[currentScreen].transform,
+            }}
+            animate={{
+              top: wrapperPlanetScreenStyles[currentScreen].top,
+              transform: wrapperPlanetScreenStyles[currentScreen].transform,
+            }}
+            exit={{ transition: { duration: 0.3, ease: 'easeIn' } }}
+            transition={{ duration: 0.6, ease: 'easeInOut' }}
+          >
+            <Planet />
+          </WrapperPlanet>
+        )}
       </ContainerStaticPage>
     </>
   );
