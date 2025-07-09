@@ -15,9 +15,17 @@ export const ContainerStaticPage = styled.div`
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
+  pointer-events: auto;
 `;
 
 export const WrapperTextTop = styled(motion.div)`
   position: absolute;
-  pointer-events: auto;
+`;
+
+export const WrapperTopButtons = styled(motion.div)`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 17.86%;
+  height: 4.81%;
 `;
