@@ -39,3 +39,12 @@ export const WrapperPlanet = styled(motion.div)`
   width: 52.92%;
   left: 50.78%;
 `;
+
+export const WrapperStatsCards = styled(motion.div)`
+  z-index: 3;
+  position: absolute;
+  width: 91.67%;
+  height: 17.59%;
+  left: 4.17%;
+  max-height: 190px;
+`;
