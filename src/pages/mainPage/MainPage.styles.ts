@@ -48,3 +48,11 @@ export const WrapperStatsCards = styled(motion.div)`
   left: 4.17%;
   max-height: 190px;
 `;
+
+export const WrapperIconsRow = styled(motion.div)`
+  z-index: 3;
+  position: absolute;
+  top: 39.4%;
+  width: 100%;
+  height: 21.2%;
+`;

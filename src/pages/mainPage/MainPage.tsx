@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, easeIn, easeInOut } from 'framer-motion';
-import { Planet, StatsCards, TextTop, TopButtons } from '@/widgets';
+import { Planet, StatsCards, TextTop, TopButtons, IconsRow } from '@/widgets';
 import {
   wrapperPlanetScreenStyles,
   wrapperTextTopScreenStyles,
@@ -14,6 +14,7 @@ import {
   WrapperTopButtons,
   WrapperPlanet,
   WrapperStatsCards,
+  WrapperIconsRow,
 } from './MainPage.styles';
 
 export const MainPage = () => {
@@ -116,6 +117,25 @@ export const MainPage = () => {
             >
               <StatsCards />
             </WrapperStatsCards>
+          )}
+
+          {currentScreen === 3 && (
+            <WrapperIconsRow
+              key="icons-row"
+              initial={{ opacity: 0, y: '100vh' }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, ease: easeInOut },
+              }}
+              exit={{
+                opacity: 0,
+                y: '-100vh',
+                transition: { duration: 0.5, ease: easeIn },
+              }}
+            >
+              <IconsRow />
+            </WrapperIconsRow>
           )}
         </AnimatePresence>
       </ContainerStaticPage>
