@@ -56,3 +56,12 @@ export const WrapperIconsRow = styled(motion.div)`
   width: 100%;
   height: 21.2%;
 `;
+
+export const WrapperTextMain = styled(motion.div)`
+  z-index: 3;
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  width: 59.74%;
+  height: 39.17%;
+`;
