@@ -65,3 +65,10 @@ export const WrapperTextMain = styled(motion.div)`
   width: 59.74%;
   height: 39.17%;
 `;
+
+export const WrapperComet = styled(motion.div)`
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  width: 4%;
+`;

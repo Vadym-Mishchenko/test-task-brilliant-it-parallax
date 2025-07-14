@@ -6,6 +6,7 @@ import {
   TopButtons,
   IconsRow,
   TextMain,
+  Comet,
 } from '@/widgets';
 import {
   wrapperPlanetScreenStyles,
@@ -23,6 +24,7 @@ import {
   WrapperStatsCards,
   WrapperIconsRow,
   WrapperTextMain,
+  WrapperComet,
 } from './MainPage.styles';
 
 export const MainPage = () => {
@@ -170,6 +172,27 @@ export const MainPage = () => {
             >
               <TextMain />
             </WrapperTextMain>
+          )}
+          {currentScreen === 4 && prevScreen === 3 && (
+            <WrapperComet
+              initial={{
+                x: '-20vw',
+                y: '-50%',
+                opacity: 0,
+              }}
+              animate={{
+                x: '100vw',
+                y: '50vh',
+                opacity: 1,
+                transition: {
+                  duration: 0.5,
+                  ease: 'linear',
+                },
+              }}
+              exit={{ opacity: 0 }}
+            >
+              <Comet />
+            </WrapperComet>
           )}
         </AnimatePresence>
       </ContainerStaticPage>
