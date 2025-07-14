@@ -3,14 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 export const useScrollNavigation = (maxScreen = 4) => {
   const [currentScreen, setCurrentScreen] = useState(1);
   const [prevScreen, setPrevScreen] = useState(1);
-  const [nextScroll, setNextScroll] = useState<'Up' | 'Down'>('Down');
+  const scrollDirectionRef = useRef<'Up' | 'Down'>('Down');
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
       if (scrollTimeoutRef.current) return;
 
-      setNextScroll(e.deltaY > 0 ? 'Down' : 'Up');
+      scrollDirectionRef.current = e.deltaY > 0 ? 'Down' : 'Up';
 
       setCurrentScreen((prev) => {
         const next =
@@ -25,11 +25,16 @@ export const useScrollNavigation = (maxScreen = 4) => {
     };
 
     window.addEventListener('wheel', onWheel, { passive: true });
+
     return () => {
       window.removeEventListener('wheel', onWheel);
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     };
-  }, []);
+  }, [maxScreen]);
 
-  return { currentScreen, prevScreen, nextScroll };
+  return {
+    currentScreen,
+    prevScreen,
+    scrollDirection: scrollDirectionRef.current,
+  };
 };

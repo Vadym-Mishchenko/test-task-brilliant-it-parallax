@@ -1,5 +1,12 @@
 import { motion, AnimatePresence, easeIn, easeInOut } from 'framer-motion';
-import { Planet, StatsCards, TextTop, TopButtons, IconsRow } from '@/widgets';
+import {
+  Planet,
+  StatsCards,
+  TextTop,
+  TopButtons,
+  IconsRow,
+  TextMain,
+} from '@/widgets';
 import {
   wrapperPlanetScreenStyles,
   wrapperTextTopScreenStyles,
@@ -15,10 +22,11 @@ import {
   WrapperPlanet,
   WrapperStatsCards,
   WrapperIconsRow,
+  WrapperTextMain,
 } from './MainPage.styles';
 
 export const MainPage = () => {
-  const { currentScreen, prevScreen, nextScroll } = useScrollNavigation();
+  const { currentScreen, prevScreen, scrollDirection } = useScrollNavigation();
 
   return (
     <>
@@ -113,7 +121,7 @@ export const MainPage = () => {
               animate={
                 getStatsCardsAnimation(prevScreen, currentScreen).animate
               }
-              exit={getStatsCardsAnimationExit(nextScroll)}
+              exit={getStatsCardsAnimationExit(scrollDirection)}
             >
               <StatsCards />
             </WrapperStatsCards>
@@ -122,7 +130,10 @@ export const MainPage = () => {
           {currentScreen === 3 && (
             <WrapperIconsRow
               key="icons-row"
-              initial={{ opacity: 0, y: '100vh' }}
+              initial={{
+                opacity: 0,
+                y: scrollDirection === 'Down' ? '100vh' : '-100vh',
+              }}
               animate={{
                 opacity: 1,
                 y: 0,
@@ -130,12 +141,35 @@ export const MainPage = () => {
               }}
               exit={{
                 opacity: 0,
-                y: '-100vh',
+                y: scrollDirection === 'Down' ? '-100vh' : '100vh',
                 transition: { duration: 0.5, ease: easeIn },
               }}
             >
               <IconsRow />
             </WrapperIconsRow>
+          )}
+
+          {currentScreen === 4 && (
+            <WrapperTextMain
+              key="text-main"
+              initial={{
+                opacity: 0,
+                y: scrollDirection === 'Down' ? '100vh' : '-100vh',
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, ease: easeInOut },
+              }}
+              exit={{
+                opacity: 0,
+                // y: scrollDirection === 'Down' ? '-100vh' : '100vh',
+                y: '100vh',
+                transition: { duration: 0.5, ease: easeIn },
+              }}
+            >
+              <TextMain />
+            </WrapperTextMain>
           )}
         </AnimatePresence>
       </ContainerStaticPage>
