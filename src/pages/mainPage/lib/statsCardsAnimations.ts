@@ -22,7 +22,11 @@ export const getStatsCardsAnimation = (prev: number, curr: number) => {
   };
 };
 
-export const getStatsCardsAnimationExit = (scrollDirection: 'Up' | 'Down') => {
+export const getStatsCardsAnimationExit = (
+  scrollDirection: 'Up' | 'Down' | null
+) => {
+  if (!scrollDirection) return;
+
   return {
     top: scrollDirection === 'Down' ? '0%' : '100%',
     opacity: 0,

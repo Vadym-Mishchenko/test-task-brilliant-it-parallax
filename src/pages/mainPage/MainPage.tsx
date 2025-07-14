@@ -6,6 +6,7 @@ import {
   TopButtons,
   IconsRow,
   TextMain,
+  Comet,
 } from '@/widgets';
 import {
   wrapperPlanetScreenStyles,
@@ -23,6 +24,7 @@ import {
   WrapperStatsCards,
   WrapperIconsRow,
   WrapperTextMain,
+  WrapperComet,
 } from './MainPage.styles';
 
 export const MainPage = () => {
@@ -114,14 +116,18 @@ export const MainPage = () => {
 
           {currentScreen === 2 && (
             <WrapperStatsCards
-              key={'stats-cards'}
+              key="stats-cards"
               initial={
                 getStatsCardsAnimation(prevScreen, currentScreen).initial
               }
               animate={
                 getStatsCardsAnimation(prevScreen, currentScreen).animate
               }
-              exit={getStatsCardsAnimationExit(scrollDirection)}
+              exit={
+                scrollDirection !== null
+                  ? getStatsCardsAnimationExit(scrollDirection)
+                  : undefined
+              }
             >
               <StatsCards />
             </WrapperStatsCards>
@@ -132,7 +138,7 @@ export const MainPage = () => {
               key="icons-row"
               initial={{
                 opacity: 0,
-                y: scrollDirection === 'Down' ? '100vh' : '-100vh',
+                y: prevScreen === 2 ? '100vh' : '-100vh',
               }}
               animate={{
                 opacity: 1,
@@ -154,7 +160,7 @@ export const MainPage = () => {
               key="text-main"
               initial={{
                 opacity: 0,
-                y: scrollDirection === 'Down' ? '100vh' : '-100vh',
+                y: prevScreen === 3 ? '100vh' : '-100vh',
               }}
               animate={{
                 opacity: 1,
@@ -163,13 +169,34 @@ export const MainPage = () => {
               }}
               exit={{
                 opacity: 0,
-                // y: scrollDirection === 'Down' ? '-100vh' : '100vh',
-                y: '100vh',
+                y: scrollDirection === 'Down' ? '-100vh' : '100vh',
                 transition: { duration: 0.5, ease: easeIn },
               }}
             >
               <TextMain />
             </WrapperTextMain>
+          )}
+
+          {currentScreen === 4 && prevScreen === 3 && (
+            <WrapperComet
+              initial={{
+                x: '-20vw',
+                y: '-50%',
+                opacity: 0,
+              }}
+              animate={{
+                x: '100vw',
+                y: '50vh',
+                opacity: 1,
+                transition: {
+                  duration: 0.5,
+                  ease: 'linear',
+                },
+              }}
+              exit={{ opacity: 0 }}
+            >
+              <Comet />
+            </WrapperComet>
           )}
         </AnimatePresence>
       </ContainerStaticPage>

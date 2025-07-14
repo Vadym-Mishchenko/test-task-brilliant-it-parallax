@@ -4,3 +4,4 @@ export * from './planet';
 export * from './statsCards';
 export * from './iconsRow';
 export * from './textMain';
+export * from './comet';
