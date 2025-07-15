@@ -54,6 +54,10 @@ export const Subheading = styled.p`
   line-height: 100%;
   letter-spacing: 0;
   color: #ffffff;
+
+  @media (max-width: 480px) {
+    font-size: clamp(14px, 4vw, 28px);
+  }
 `;
 
 export const ContainerButton = styled.div`

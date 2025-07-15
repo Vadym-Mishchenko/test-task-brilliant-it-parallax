@@ -16,6 +16,13 @@ export const TextMainTitle = styled.h2`
   font-size: 64px;
   line-height: 110%;
   letter-spacing: 0;
+
+  @media (max-width: 1200px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const TextMainText = styled.p`
@@ -26,4 +33,11 @@ export const TextMainText = styled.p`
   line-height: 32px;
   letter-spacing: 0;
   vertical-align: bottom;
+
+  @media (max-width: 1200px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
