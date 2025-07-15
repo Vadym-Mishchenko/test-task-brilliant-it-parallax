@@ -31,13 +31,19 @@ export const WrapperTopButtons = styled(motion.div)`
   transform: translateX(-50%);
   width: 17.86%;
   height: 4.81%;
+  min-width: 340px;
 `;
 
 export const WrapperPlanet = styled(motion.div)`
-  z-index: 1;
+  z-index: 0;
   position: absolute;
   width: 52.92%;
   left: 50.78%;
+
+  @media (max-width: 768px) {
+    width: 80%;
+    left: 30%;
+  }
 `;
 
 export const WrapperStatsCards = styled(motion.div)`
@@ -55,6 +61,11 @@ export const WrapperIconsRow = styled(motion.div)`
   top: 39.4%;
   width: 100%;
   height: 21.2%;
+
+  @media (max-width: 768px) {
+    top: 10%;
+    height: 80%;
+  }
 `;
 
 export const WrapperTextMain = styled(motion.div)`
@@ -64,6 +75,16 @@ export const WrapperTextMain = styled(motion.div)`
   left: 5%;
   width: 59.74%;
   height: 39.17%;
+
+  @media (max-width: 1740px) {
+    width: 70%;
+    height: 60%;
+  }
+
+  @media (max-width: 768px) {
+    top: 20%;
+    width: 80%;
+  }
 `;
 
 export const WrapperComet = styled(motion.div)`
@@ -71,4 +92,12 @@ export const WrapperComet = styled(motion.div)`
   position: absolute;
   top: 50%;
   width: 4%;
+`;
+
+export const WrapperBlurredBlobRed = styled(motion.div)`
+  position: absolute;
+`;
+
+export const WrapperBlurredBlobBlue = styled(motion.div)`
+  position: absolute;
 `;

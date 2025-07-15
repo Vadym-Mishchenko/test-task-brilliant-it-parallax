@@ -19,6 +19,28 @@ export const StyledButton = styled.button<IProps>`
   overflow: hidden;
   color: white;
   transition: color 0.3s ease;
+  user-select: none;
+
+  @media (max-width: 768px) {
+    height: ${({ $height }) => `${$height * 0.8}px`};
+    font-size: ${({ $fontSize }) => `${$fontSize * 0.85}px`};
+    padding: ${({ $padding }) => {
+      const [topBottom, leftRight] = $padding.split(' ');
+      const scaled = (val: string) =>
+        val.endsWith('px') ? `${parseInt(val) * 0.8}px` : val;
+      return `${scaled(topBottom)} ${scaled(leftRight)}`;
+    }};
+  }
+
+  @media (max-width: 480px) {
+    height: ${({ $height }) => `${$height * 0.7}px`};
+    font-size: ${({ $fontSize }) => `${$fontSize * 0.6}px`};
+  }
+
+  @media (max-width: 320px) {
+    height: ${({ $height }) => `${$height * 0.6}px`};
+    font-size: ${({ $fontSize }) => `${$fontSize * 0.4}px`};
+  }
 
   ${({ $hasBorder }) =>
     $hasBorder

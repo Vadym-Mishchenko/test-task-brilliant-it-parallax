@@ -5,4 +5,8 @@ export const ContainerStatsCards = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 768px) {
+    max-height: 120px;
+  }
 `;

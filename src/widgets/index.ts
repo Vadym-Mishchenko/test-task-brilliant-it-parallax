@@ -5,3 +5,5 @@ export * from './statsCards';
 export * from './iconsRow';
 export * from './textMain';
 export * from './comet';
+export * from './blurredBlobRed';
+export * from './blurredBlobBlue';
