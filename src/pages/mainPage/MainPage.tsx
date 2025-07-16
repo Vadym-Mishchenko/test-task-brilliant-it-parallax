@@ -50,10 +50,13 @@ export const MainPage = () => {
         <AnimatePresence>
           {(currentScreen === 1 || currentScreen === 2) && (
             <WrapperTopButtons
-              key="top-buttons"
-              initial={{ top: '-20%', opacity: 0 }}
+              style={{ top: '2.96%' }}
+              initial={{
+                transform: 'translateX(-50%) translateY(-22.96vh)',
+                opacity: 0,
+              }}
               animate={{
-                top: '2.96%',
+                transform: 'translateX(-50%) translateY(0)',
                 opacity: 1,
                 transition: {
                   duration: 0.6,
@@ -62,7 +65,7 @@ export const MainPage = () => {
                 },
               }}
               exit={{
-                top: '-20%',
+                transform: 'translateX(-50%) translateY(-22.96vh)',
                 opacity: 0,
                 transition: { duration: 0.3, ease: easeIn },
               }}
