@@ -7,8 +7,8 @@ import {
   IconsRow,
   TextMain,
   Comet,
-  BlurredBlobRed,
-  BlurredBlobBlue,
+  // BlurredBlobRed,
+  // BlurredBlobBlue,
 } from '@/widgets';
 import {
   wrapperPlanetScreenStyles,
@@ -16,8 +16,8 @@ import {
   useScrollNavigation,
   getStatsCardsAnimation,
   getStatsCardsAnimationExit,
-  wrapperBlurredBlobRedScreenStyles,
-  wrapperBlurredBlobBlueScreenStyles,
+  // wrapperBlurredBlobRedScreenStyles,
+  // wrapperBlurredBlobBlueScreenStyles,
 } from './lib';
 import {
   BackgroundScroll,
@@ -30,7 +30,7 @@ import {
   WrapperTextMain,
   WrapperComet,
   WrapperBlurredBlobRed,
-  WrapperBlurredBlobBlue,
+  // WrapperBlurredBlobBlue,
 } from './MainPage.styles';
 
 export const MainPage = () => {
