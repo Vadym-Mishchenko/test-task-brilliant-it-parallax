@@ -210,7 +210,7 @@ export const MainPage = () => {
             </WrapperComet>
           )}
 
-          {(currentScreen === 1 ||
+          {/* {(currentScreen === 1 ||
             currentScreen === 2 ||
             currentScreen === 3 ||
             currentScreen === 4) && (
@@ -268,7 +268,7 @@ export const MainPage = () => {
             >
               <BlurredBlobBlue />
             </WrapperBlurredBlobBlue>
-          )}
+          )} */}
         </AnimatePresence>
       </ContainerStaticPage>
     </>
