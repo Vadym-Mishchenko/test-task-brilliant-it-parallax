@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // ✅ это важно
+      '@': path.resolve(__dirname, 'src'),
     },
   },
+  base: '/test-task-brilliant-it-parallax/',
 });
