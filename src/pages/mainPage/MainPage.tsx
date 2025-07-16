@@ -186,6 +186,7 @@ export const MainPage = () => {
 
           {currentScreen === 4 && prevScreen === 3 && (
             <WrapperComet
+              key="comet"
               initial={{
                 x: '-20vw',
                 y: '-50%',

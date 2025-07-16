@@ -21,6 +21,19 @@ const StyledHeading = styled.h1<Iprops>`
   transition: all 0.6s ease-in-out;
   pointer-events: none;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 1850px) {
+    font-size: 6rem;
+  }
+  @media (max-width: 1400px) {
+    font-size: 5rem;
+  }
+  @media (max-width: 1200px) {
+    font-size: 4rem;
+  }
+  @media (max-width: 550px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Heading1 = styled(StyledHeading)`

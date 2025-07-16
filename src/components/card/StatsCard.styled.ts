@@ -4,13 +4,14 @@ import { motion } from 'framer-motion';
 export const ContainerStatsCard = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   align-self: center;
   padding: 32px;
   border-radius: 91px;
   width: 32%;
   height: 100%;
+  min-height: 108px;
   background: linear-gradient(
     105.75deg,
     rgba(150, 52, 136, 0.3) -69.35%,
@@ -21,13 +22,19 @@ export const ContainerStatsCard = styled(motion.div)`
   @media (max-width: 768px) {
     border-radius: 40px;
   }
+  @media (max-height: 900px) {
+    padding: 16px;
+  }
+  @media (max-height: 768px) {
+    padding: 2px;
+  }
 `;
 
 export const TopTitle = styled.p`
   font-size: 4rem;
   font-weight: 700;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1700px) {
     font-size: 3rem;
   }
   @media (max-width: 768px) {

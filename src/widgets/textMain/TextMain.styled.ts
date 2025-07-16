@@ -7,6 +7,7 @@ export const ContainerTextMain = styled(motion.div)`
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  min-height: 400px;
 `;
 
 export const TextMainTitle = styled.h2`
