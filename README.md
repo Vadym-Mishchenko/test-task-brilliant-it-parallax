@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+# 🌌 Parallax Scroll SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern single-page animated website with smooth parallax effects built using **React 19**, **Framer Motion**, and **styled-components**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+The project is deployed and available at:  
+https://test-task-brilliant-it-parallax.vercel.app
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **React 19** – core SPA framework
+- **TypeScript** – static type checking
+- **Framer Motion** – animation library for smooth transitions and scroll effects
+- **styled-components** – CSS-in-JS styling
+- **Vite** – ultra-fast build tool and dev server
+- **ESLint + Prettier** – linting and code formatting
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ⚙️ Available Scripts
+
+| Command            | Description                       |
+| ------------------ | --------------------------------- |
+| `npm run dev`      | Launch development server         |
+| `npm run build`    | Build the project for production  |
+| `npm run preview`  | Preview the production build      |
+| `npm run lint`     | Lint all `.ts` and `.tsx` files   |
+| `npm run lint:fix` | Automatically fix linting issues  |
+| `npm run format`   | Format the codebase with Prettier |
+
+---
+
+## 💻 Getting Started
+
+To run the project locally:
+
+```bash
+    git clone https://github.com/Vadym-Mishchenko/test-task-brilliant-it-parallax.git
+    cd test-task-brilliant-it-parallax
+    npm install
+    npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✍️ Автор
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Vadym Mishchenko  
+GitHub: https://github.com/Vadym-Mishchenko

@@ -22,6 +22,7 @@ export const ContainerStaticPage = styled.div`
 export const WrapperTextTop = styled(motion.div)`
   z-index: 3;
   position: absolute;
+  will-change: transform, opacity;
 `;
 
 export const WrapperTopButtons = styled(motion.div)`
@@ -32,6 +33,7 @@ export const WrapperTopButtons = styled(motion.div)`
   width: 17.86%;
   height: 4.81%;
   min-width: 340px;
+  will-change: transform, opacity;
 `;
 
 export const WrapperPlanet = styled(motion.div)`
@@ -39,6 +41,7 @@ export const WrapperPlanet = styled(motion.div)`
   position: absolute;
   width: 52.92%;
   left: 50.78%;
+  will-change: transform, opacity;
 
   @media (max-width: 768px) {
     width: 80%;
@@ -53,6 +56,7 @@ export const WrapperStatsCards = styled(motion.div)`
   height: 17.59%;
   left: 4.17%;
   max-height: 190px;
+  will-change: transform, opacity;
 `;
 
 export const WrapperIconsRow = styled(motion.div)`
@@ -61,6 +65,7 @@ export const WrapperIconsRow = styled(motion.div)`
   top: 39.4%;
   width: 100%;
   height: 21.2%;
+  will-change: transform, opacity;
 
   @media (max-width: 768px) {
     top: 10%;
@@ -75,6 +80,7 @@ export const WrapperTextMain = styled(motion.div)`
   left: 5%;
   width: 59.74%;
   height: 39.17%;
+  will-change: transform, opacity;
 
   @media (max-width: 1740px) {
     width: 70%;
@@ -92,12 +98,15 @@ export const WrapperComet = styled(motion.div)`
   position: absolute;
   top: 50%;
   width: 4%;
+  will-change: transform, opacity;
 `;
 
 export const WrapperBlurredBlobRed = styled(motion.div)`
   position: absolute;
+  will-change: transform, opacity;
 `;
 
 export const WrapperBlurredBlobBlue = styled(motion.div)`
   position: absolute;
+  will-change: transform, opacity;
 `;
