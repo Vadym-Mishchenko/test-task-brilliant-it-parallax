@@ -15,7 +15,8 @@ export const useScrollNavigation = (maxScreen = 4) => {
   const lockScrollRef = useRef(false); // Prevents rapid screen switching
 
   const lastDirectionRef = useRef<'Up' | 'Down' | null>(null);
-  const touchStartYRef = useRef<number | null>(null); // Stores touch Y position
+  const touchStartYRef = useRef<number | null>(null);
+  const wheelDeltaAccum = useRef(0);
 
   // Keep refs in sync with state
   useEffect(() => {
@@ -36,6 +37,7 @@ export const useScrollNavigation = (maxScreen = 4) => {
         clearTimeout(scrollTimeoutRef.current);
         scrollTimeoutRef.current = null;
       }
+      wheelDeltaAccum.current = 0;
     }
     lastDirectionRef.current = direction;
 
@@ -55,7 +57,6 @@ export const useScrollNavigation = (maxScreen = 4) => {
       setScrollDirection(null);
       scrollTimeoutRef.current = null;
 
-      // Lock further scrolling for 500ms
       lockScrollRef.current = true;
       lockTimeoutRef.current = setTimeout(() => {
         lockScrollRef.current = false;
@@ -65,8 +66,14 @@ export const useScrollNavigation = (maxScreen = 4) => {
 
   // Handle mouse wheel scroll
   const onWheel = (e: WheelEvent) => {
-    const direction = e.deltaY > 0 ? 'Down' : 'Up';
-    tryChangeScreen(direction);
+    wheelDeltaAccum.current += e.deltaY;
+    const threshold = 100;
+
+    if (Math.abs(wheelDeltaAccum.current) >= threshold) {
+      const direction = wheelDeltaAccum.current > 0 ? 'Down' : 'Up';
+      tryChangeScreen(direction);
+      wheelDeltaAccum.current = 0;
+    }
   };
 
   // Handle touch start (mobile)
@@ -81,7 +88,7 @@ export const useScrollNavigation = (maxScreen = 4) => {
     const touchEndY = e.changedTouches[0].clientY;
     const diffY = touchStartYRef.current - touchEndY;
 
-    const swipeThreshold = 50; // Minimum swipe distance in px
+    const swipeThreshold = 80; // Minimum swipe distance in px
 
     if (Math.abs(diffY) > swipeThreshold) {
       const direction = diffY > 0 ? 'Down' : 'Up';
