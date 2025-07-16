@@ -11,7 +11,7 @@
     "format": "prettier --write './src/**/*.{ts,tsx,js,json,css,md}'",
     "preview": "vite preview",
     "predeploy": "vite build",
-    "deploy": "gh-pages -d dist -f"
+    "deploy": "gh-pages -d dist --silent"
   },
   "dependencies": {
     "framer-motion": "^12.23.0",
