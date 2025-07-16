@@ -7,8 +7,8 @@ import {
   IconsRow,
   TextMain,
   Comet,
-  // BlurredBlobRed,
-  // BlurredBlobBlue,
+  BlurredBlobRed,
+  BlurredBlobBlue,
 } from '@/widgets';
 import {
   wrapperPlanetScreenStyles,
@@ -16,8 +16,8 @@ import {
   useScrollNavigation,
   getStatsCardsAnimation,
   getStatsCardsAnimationExit,
-  // wrapperBlurredBlobRedScreenStyles,
-  // wrapperBlurredBlobBlueScreenStyles,
+  wrapperBlurredBlobRedScreenStyles,
+  wrapperBlurredBlobBlueScreenStyles,
 } from './lib';
 import {
   BackgroundScroll,
@@ -30,7 +30,7 @@ import {
   WrapperTextMain,
   WrapperComet,
   WrapperBlurredBlobRed,
-  // WrapperBlurredBlobBlue,
+  WrapperBlurredBlobBlue,
 } from './MainPage.styles';
 
 export const MainPage = () => {
@@ -210,7 +210,7 @@ export const MainPage = () => {
             </WrapperComet>
           )}
 
-          {/* {(currentScreen === 1 ||
+          {(currentScreen === 1 ||
             currentScreen === 2 ||
             currentScreen === 3 ||
             currentScreen === 4) && (
@@ -219,16 +219,12 @@ export const MainPage = () => {
               initial={{
                 top: wrapperBlurredBlobRedScreenStyles[currentScreen].top,
                 left: wrapperBlurredBlobRedScreenStyles[currentScreen].left,
-                width: wrapperBlurredBlobRedScreenStyles[currentScreen].width,
-                height: wrapperBlurredBlobRedScreenStyles[currentScreen].height,
                 transform:
                   wrapperBlurredBlobRedScreenStyles[currentScreen].transform,
               }}
               animate={{
                 top: wrapperBlurredBlobRedScreenStyles[currentScreen].top,
                 left: wrapperBlurredBlobRedScreenStyles[currentScreen].left,
-                width: wrapperBlurredBlobRedScreenStyles[currentScreen].width,
-                height: wrapperBlurredBlobRedScreenStyles[currentScreen].height,
                 transform:
                   wrapperBlurredBlobRedScreenStyles[currentScreen].transform,
               }}
@@ -247,19 +243,11 @@ export const MainPage = () => {
               key="blurred-blob-blue"
               initial={{
                 top: wrapperBlurredBlobBlueScreenStyles[currentScreen].top,
-                left: wrapperBlurredBlobBlueScreenStyles[currentScreen].left,
-                width: wrapperBlurredBlobBlueScreenStyles[currentScreen].width,
-                height:
-                  wrapperBlurredBlobBlueScreenStyles[currentScreen].height,
                 transform:
                   wrapperBlurredBlobBlueScreenStyles[currentScreen].transform,
               }}
               animate={{
                 top: wrapperBlurredBlobBlueScreenStyles[currentScreen].top,
-                left: wrapperBlurredBlobBlueScreenStyles[currentScreen].left,
-                width: wrapperBlurredBlobBlueScreenStyles[currentScreen].width,
-                height:
-                  wrapperBlurredBlobBlueScreenStyles[currentScreen].height,
                 transform:
                   wrapperBlurredBlobBlueScreenStyles[currentScreen].transform,
               }}
@@ -268,7 +256,7 @@ export const MainPage = () => {
             >
               <BlurredBlobBlue />
             </WrapperBlurredBlobBlue>
-          )} */}
+          )}
         </AnimatePresence>
       </ContainerStaticPage>
     </>

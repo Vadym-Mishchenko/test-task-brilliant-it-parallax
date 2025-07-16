@@ -103,10 +103,15 @@ export const WrapperComet = styled(motion.div)`
 
 export const WrapperBlurredBlobRed = styled(motion.div)`
   position: absolute;
+  height: 73.7%;
+  width: 26.3%;
   will-change: transform, opacity;
 `;
 
 export const WrapperBlurredBlobBlue = styled(motion.div)`
   position: absolute;
+  width: 26.3%;
+  height: 68%;
+  left: 27%;
   will-change: transform, opacity;
 `;
