@@ -17,16 +17,17 @@ export const Table = () => {
   const [page, setPage] = useState(0);
   const [visible, setVisible] = useState(true);
   const [pageSize, setPageSize] = useState(8);
+  const [isShortScreen, setIsShortScreen] = useState(false);
 
   useEffect(() => {
     const height = window.innerHeight;
     if (height < 900) {
-      setPageSize(3);
+      setPageSize(5);
+      setIsShortScreen(true);
     }
   }, []);
 
   const totalPages = Math.ceil(models.length / pageSize);
-
   const paginatedModels = models.slice(page * pageSize, (page + 1) * pageSize);
 
   const handlePageChange = (newPage: number) => {
@@ -110,7 +111,11 @@ export const Table = () => {
         )}
       </AnimatePresence>
 
-      <TablePaginationBtnContainer>
+      <TablePaginationBtnContainer
+        style={{
+          paddingBottom: isShortScreen ? '60px' : undefined,
+        }}
+      >
         <AnimatePresence initial={false} mode="popLayout">
           {page > 0 && (
             <motion.div
