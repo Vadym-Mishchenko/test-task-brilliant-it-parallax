@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { columnKeys, columnTitles, models } from '../mock/mock';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
   TableCell,
   TableContainer,
@@ -14,7 +14,7 @@ import {
 import { Arrow } from '@/components';
 
 export const Table = () => {
-  const [page, setPage] = useState<0 | 1>(0);
+  const [page, setPage] = useState(0);
   const [visible, setVisible] = useState(true);
   const [pageSize, setPageSize] = useState(8);
 
@@ -25,15 +25,24 @@ export const Table = () => {
     }
   }, []);
 
+  const totalPages = Math.ceil(models.length / pageSize);
+
   const paginatedModels = models.slice(page * pageSize, (page + 1) * pageSize);
 
-  const handleTogglePage = () => {
-    setVisible(false);
+  const handlePageChange = (newPage: number) => {
+    if (newPage < 0 || newPage >= totalPages) return;
 
+    setVisible(false);
     setTimeout(() => {
-      setPage((prev) => (prev === 0 ? 1 : 0));
+      setPage(newPage);
       setVisible(true);
     }, 300);
+  };
+
+  const fadeInVariant = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
   };
 
   return (
@@ -102,9 +111,36 @@ export const Table = () => {
       </AnimatePresence>
 
       <TablePaginationBtnContainer>
-        <TablePaginationBtn onClick={handleTogglePage}>
-          <Arrow color="default" direction={page ? 'up' : 'down'} />
-        </TablePaginationBtn>
+        <AnimatePresence initial={false} mode="popLayout">
+          {page > 0 && (
+            <motion.div
+              key="prev"
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={fadeInVariant}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
+              <TablePaginationBtn onClick={() => handlePageChange(page - 1)}>
+                <Arrow color="default" direction="up" />
+              </TablePaginationBtn>
+            </motion.div>
+          )}
+          {page < totalPages - 1 && (
+            <motion.div
+              key="next"
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={fadeInVariant}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
+              <TablePaginationBtn onClick={() => handlePageChange(page + 1)}>
+                <Arrow color="default" direction="down" />
+              </TablePaginationBtn>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </TablePaginationBtnContainer>
     </>
   );

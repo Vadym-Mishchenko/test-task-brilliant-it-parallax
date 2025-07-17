@@ -49,9 +49,10 @@ export const TrendIconWrapper = styled.span<{ trend: Model['trend'] }>`
   }
 `;
 
-export const TablePaginationBtnContainer = styled.div`
+export const TablePaginationBtnContainer = styled(motion.div)`
   display: flex;
   justify-content: end;
+  gap: 20px;
 `;
 
 export const TablePaginationBtn = styled.div`
