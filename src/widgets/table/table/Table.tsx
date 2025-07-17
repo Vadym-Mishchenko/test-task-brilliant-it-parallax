@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { columnKeys, columnTitles, models } from '../mock/mock';
 import { AnimatePresence } from 'framer-motion';
 import {
@@ -13,16 +13,19 @@ import {
 } from './Table.styled';
 import { Arrow } from '@/components';
 
-const PAGE_SIZE = 8;
-
 export const Table = () => {
   const [page, setPage] = useState<0 | 1>(0);
   const [visible, setVisible] = useState(true);
+  const [pageSize, setPageSize] = useState(8);
 
-  const paginatedModels = models.slice(
-    page * PAGE_SIZE,
-    (page + 1) * PAGE_SIZE
-  );
+  useEffect(() => {
+    const height = window.innerHeight;
+    if (height < 900) {
+      setPageSize(5);
+    }
+  }, []);
+
+  const paginatedModels = models.slice(page * pageSize, (page + 1) * pageSize);
 
   const handleTogglePage = () => {
     setVisible(false);
