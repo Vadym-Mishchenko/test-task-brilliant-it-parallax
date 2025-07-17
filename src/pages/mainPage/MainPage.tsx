@@ -9,6 +9,9 @@ import {
   Comet,
   BlurredBlobRed,
   BlurredBlobBlue,
+  TableHeader,
+  TableText,
+  Table,
 } from '@/widgets';
 import {
   wrapperPlanetScreenStyles,
@@ -31,6 +34,7 @@ import {
   WrapperComet,
   WrapperBlurredBlobRed,
   WrapperBlurredBlobBlue,
+  WrapperTable,
 } from './MainPage.styles';
 
 export const MainPage = () => {
@@ -106,7 +110,8 @@ export const MainPage = () => {
           {(currentScreen === 1 ||
             currentScreen === 2 ||
             currentScreen === 3 ||
-            currentScreen === 4) && (
+            currentScreen === 4 ||
+            currentScreen === 5) && (
             <WrapperPlanet
               key="planet"
               initial={{
@@ -213,7 +218,8 @@ export const MainPage = () => {
           {(currentScreen === 1 ||
             currentScreen === 2 ||
             currentScreen === 3 ||
-            currentScreen === 4) && (
+            currentScreen === 4 ||
+            currentScreen === 5) && (
             <WrapperBlurredBlobRed
               key="blurred-blob-red"
               initial={{
@@ -256,6 +262,30 @@ export const MainPage = () => {
             >
               <BlurredBlobBlue />
             </WrapperBlurredBlobBlue>
+          )}
+
+          {currentScreen === 5 && (
+            <WrapperTable
+              key="table"
+              initial={{
+                opacity: 0,
+                y: prevScreen === 4 ? '100vh' : '-100vh',
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, ease: easeInOut },
+              }}
+              exit={{
+                opacity: 0,
+                y: scrollDirection === 'Down' ? '-100vh' : '100vh',
+                transition: { duration: 0.5, ease: easeIn },
+              }}
+            >
+              <TableHeader />
+              <TableText />
+              <Table />
+            </WrapperTable>
           )}
         </AnimatePresence>
       </ContainerStaticPage>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const BackgroundScroll = styled.div`
   width: 100vw;
-  height: 400vh;
+  height: 500vh;
   background: black;
   /* background: linear-gradient(180deg, #000000 36.4%, #191e2a 100%); */
 `;
@@ -114,4 +114,15 @@ export const WrapperBlurredBlobBlue = styled(motion.div)`
   height: 68%;
   left: 27%;
   will-change: transform, opacity;
+`;
+
+export const WrapperTable = styled(motion.div)`
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4.17%;
+  width: 100%;
+  height: 100%;
 `;
