@@ -21,7 +21,7 @@ export const Table = () => {
   useEffect(() => {
     const height = window.innerHeight;
     if (height < 900) {
-      setPageSize(5);
+      setPageSize(3);
     }
   }, []);
 
