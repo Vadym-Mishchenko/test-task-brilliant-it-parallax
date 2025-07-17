@@ -30,6 +30,10 @@ export const wrapperPlanetScreenStyles = {
     top: '-17%',
     transform: 'rotate(172deg)',
   },
+  5: {
+    top: '-72%',
+    transform: 'rotate(172deg)',
+  },
 };
 
 export const wrapperBlurredBlobRedScreenStyles = {
@@ -52,6 +56,11 @@ export const wrapperBlurredBlobRedScreenStyles = {
     top: '30%',
     left: '22%',
     transform: 'rotate(135deg)',
+  },
+  5: {
+    top: '-30%',
+    left: '30%',
+    transform: 'rotate(145deg)',
   },
 };
 

@@ -7,3 +7,4 @@ export * from './textMain';
 export * from './comet';
 export * from './blurredBlobRed';
 export * from './blurredBlobBlue';
+export * from './table';
