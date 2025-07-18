@@ -8,3 +8,5 @@ export * from './comet';
 export * from './blurredBlobRed';
 export * from './blurredBlobBlue';
 export * from './table';
+export * from './moon';
+export * from './earth';

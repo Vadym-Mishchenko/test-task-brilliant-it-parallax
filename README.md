@@ -1,6 +1,6 @@
 # 🌌 Parallax Scroll SPA
 
-A modern single-page animated website with smooth parallax effects built using **React 19**, **Framer Motion**, and **styled-components**.
+A modern, fully responsive single-page animated website with smooth parallax effects built using **React 19**, **Framer Motion**, and **styled-components**.
 
 ---
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const useScrollNavigation = (maxScreen = 5) => {
+export const useScrollNavigation = (maxScreen = 7) => {
   const [currentScreen, setCurrentScreen] = useState(1);
   const [prevScreen, setPrevScreen] = useState(1);
   const [scrollDirection, setScrollDirection] = useState<'Up' | 'Down' | null>(

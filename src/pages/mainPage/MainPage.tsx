@@ -12,6 +12,8 @@ import {
   TableHeader,
   TableText,
   Table,
+  Moon,
+  Earth,
 } from '@/widgets';
 import {
   wrapperPlanetScreenStyles,
@@ -35,7 +37,11 @@ import {
   WrapperBlurredBlobRed,
   WrapperBlurredBlobBlue,
   WrapperTable,
+  WrapperMoon,
+  WrapperBottom,
+  WrapperEarth,
 } from './MainPage.styles';
+import { Bottom } from '@/widgets/bottom';
 
 export const MainPage = () => {
   const { currentScreen, prevScreen, scrollDirection } = useScrollNavigation();
@@ -115,14 +121,27 @@ export const MainPage = () => {
             <WrapperPlanet
               key="planet"
               initial={{
-                top: wrapperPlanetScreenStyles[currentScreen].top,
+                top:
+                  currentScreen === 5 && prevScreen === 6
+                    ? '-100%'
+                    : wrapperPlanetScreenStyles[currentScreen].top,
                 transform: wrapperPlanetScreenStyles[currentScreen].transform,
+                opacity: 0,
               }}
               animate={{
                 top: wrapperPlanetScreenStyles[currentScreen].top,
                 transform: wrapperPlanetScreenStyles[currentScreen].transform,
+                opacity: 1,
               }}
-              exit={{ transition: { duration: 0.3, ease: easeIn } }}
+              exit={{
+                top: currentScreen === 5 && prevScreen === 6 ? '100%' : '0%',
+                transform:
+                  currentScreen === 5 && prevScreen === 6
+                    ? 'translateY(100%)'
+                    : 'translateY(-100%)',
+                opacity: 0,
+                transition: { duration: 0.4, ease: easeIn },
+              }}
               transition={{ duration: 0.6, ease: easeInOut }}
             >
               <Planet />
@@ -223,18 +242,28 @@ export const MainPage = () => {
             <WrapperBlurredBlobRed
               key="blurred-blob-red"
               initial={{
-                top: wrapperBlurredBlobRedScreenStyles[currentScreen].top,
+                top:
+                  currentScreen === 5
+                    ? '-100%'
+                    : wrapperBlurredBlobRedScreenStyles[currentScreen].top,
                 left: wrapperBlurredBlobRedScreenStyles[currentScreen].left,
                 transform:
                   wrapperBlurredBlobRedScreenStyles[currentScreen].transform,
+                opacity: 0,
               }}
               animate={{
                 top: wrapperBlurredBlobRedScreenStyles[currentScreen].top,
                 left: wrapperBlurredBlobRedScreenStyles[currentScreen].left,
                 transform:
                   wrapperBlurredBlobRedScreenStyles[currentScreen].transform,
+                opacity: 1,
               }}
-              exit={{ transition: { duration: 0.3, ease: easeIn } }}
+              exit={{
+                top: currentScreen === 5 ? '-100%' : '0%',
+                transform: 'translateY(-100%)',
+                opacity: 0,
+                transition: { duration: 0.4, ease: easeIn },
+              }}
               transition={{ duration: 0.6, ease: easeInOut }}
             >
               <BlurredBlobRed />
@@ -286,6 +315,69 @@ export const MainPage = () => {
               <TableText />
               <Table />
             </WrapperTable>
+          )}
+
+          {currentScreen === 6 && (
+            <WrapperMoon
+              key="moon"
+              initial={{
+                opacity: 0,
+                y: prevScreen === 5 ? '100vh' : '-100vh',
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, ease: easeInOut },
+              }}
+              exit={{
+                opacity: 0,
+                y: scrollDirection === 'Down' ? '-100vh' : '100vh',
+                transition: { duration: 0.5, ease: easeIn },
+              }}
+            >
+              <Moon />
+            </WrapperMoon>
+          )}
+
+          {(currentScreen === 6 || currentScreen === 7) && (
+            <WrapperEarth
+              key="earth"
+              initial={{
+                opacity: 0,
+                y: prevScreen === 6 ? '-100vh' : '100vh',
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, ease: easeInOut },
+              }}
+              exit={{
+                opacity: 0,
+                y: '100vh',
+                transition: { duration: 0.5, ease: easeIn },
+              }}
+            >
+              <Earth currentScreen={currentScreen} />
+            </WrapperEarth>
+          )}
+
+          {currentScreen === 7 && (
+            <WrapperBottom
+              key="bottom"
+              initial={{
+                y: prevScreen === 6 ? '100vh' : '-100vh',
+              }}
+              animate={{
+                y: 0,
+                transition: { duration: 0.7, ease: easeInOut },
+              }}
+              exit={{
+                y: scrollDirection === 'Down' ? '-100vh' : '100vh',
+                transition: { duration: 0.5, ease: easeIn },
+              }}
+            >
+              <Bottom />
+            </WrapperBottom>
           )}
         </AnimatePresence>
       </ContainerStaticPage>

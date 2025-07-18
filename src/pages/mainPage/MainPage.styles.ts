@@ -3,9 +3,8 @@ import { motion } from 'framer-motion';
 
 export const BackgroundScroll = styled.div`
   width: 100vw;
-  height: 500vh;
-  background: black;
-  /* background: linear-gradient(180deg, #000000 36.4%, #191e2a 100%); */
+  height: 700vh;
+  background: linear-gradient(180deg, #000000 66.4%, #191e2a 100%);
 `;
 
 export const ContainerStaticPage = styled.div`
@@ -123,6 +122,32 @@ export const WrapperTable = styled(motion.div)`
   flex-direction: column;
   justify-content: space-between;
   padding: 4.17%;
+  width: 100%;
+  height: 100%;
+`;
+
+export const WrapperMoon = styled(motion.div)`
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
+
+export const WrapperEarth = styled(motion.div)`
+  position: absolute;
+  width: 100%;
+  height: 51.11%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+`;
+
+export const WrapperBottom = styled(motion.div)`
+  z-index: 2;
+  position: absolute;
+  display: flex;
   width: 100%;
   height: 100%;
 `;
