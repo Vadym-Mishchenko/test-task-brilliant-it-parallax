@@ -31,6 +31,10 @@ export const BottomFooter = styled.div`
   flex-direction: column;
   gap: 20px;
   width: 91.67%;
+
+  @media (max-height: 900px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const BottomFooterBtnsContainer = styled.div`
