@@ -7,10 +7,6 @@ export const TableContainer = styled(motion.table)`
   max-width: 100vw;
   height: 70%;
   border-collapse: collapse;
-
-  @media (max-height: 900px) {
-    margin-bottom: 20px;
-  }
 `;
 
 export const TableScrollWrapper = styled.div`
