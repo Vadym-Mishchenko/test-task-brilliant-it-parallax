@@ -17,7 +17,7 @@ export const Arrow = ({ direction, color }: IProps) => {
       src="/images/vector.svg"
       alt="arrow"
       color={color}
-      rotation={rotation}
+      $rotation={rotation}
     />
   );
 };

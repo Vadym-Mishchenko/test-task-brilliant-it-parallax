@@ -25,17 +25,17 @@ export const TableHeader = styled.th`
   font-size: 1rem;
 `;
 
-export const TableRow = styled.tr<{ isEven: boolean }>`
-  background-color: ${({ isEven }) => (isEven ? 'transparent' : '#C9D9FF14')};
+export const TableRow = styled.tr<{ $isEven: boolean }>`
+  background-color: ${({ $isEven }) => ($isEven ? 'transparent' : '#C9D9FF14')};
 `;
 
-export const TableCell = styled.td<{ align?: 'start' | 'center' | 'end' }>`
+export const TableCell = styled.td<{ $align?: 'start' | 'center' | 'end' }>`
   padding: 24px;
-  text-align: ${({ align }) => align || 'end'};
+  text-align: ${({ $align }) => $align || 'end'};
   font-family: 'Metrophobic', sans-serif;
 `;
 
-export const TrendIconWrapper = styled.span<{ trend: Model['trend'] }>`
+export const TrendIconWrapper = styled.span<{ $trend: Model['trend'] }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -44,8 +44,8 @@ export const TrendIconWrapper = styled.span<{ trend: Model['trend'] }>`
   margin-right: 6px;
 
   svg {
-    fill: ${({ trend }) =>
-      trend === 'up' ? 'green' : trend === 'down' ? 'red' : 'gray'};
+    fill: ${({ $trend }) =>
+      $trend === 'up' ? 'green' : $trend === 'down' ? 'red' : 'gray'};
   }
 `;
 

@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components';
 
 export const StyledArrow = styled.img<{
   color: 'default' | 'red' | 'green';
-  rotation: number;
+  $rotation: number;
 }>`
   display: inline-block;
   transition: transform 0.3s ease;
-  transform: rotate(${({ rotation }) => rotation}deg);
+  transform: rotate(${({ $rotation }) => $rotation}deg);
 
   ${({ color }) => {
     switch (color) {

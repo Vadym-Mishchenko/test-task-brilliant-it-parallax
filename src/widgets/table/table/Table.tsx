@@ -80,9 +80,9 @@ export const Table = () => {
               </thead>
               <tbody>
                 {paginatedModels.map((model, index) => (
-                  <TableRow key={model.id} isEven={index % 2 === 1}>
-                    <TableCell align="center">
-                      <TrendIconWrapper trend={model.trend}>
+                  <TableRow key={model.id} $isEven={index % 2 === 1}>
+                    <TableCell $align="center">
+                      <TrendIconWrapper $trend={model.trend}>
                         <Arrow
                           direction={model.trend}
                           color={model.trend === 'up' ? 'green' : 'red'}
@@ -92,7 +92,7 @@ export const Table = () => {
                     {columnKeys.map((key, colIndex) => (
                       <TableCell
                         key={key}
-                        align={
+                        $align={
                           colIndex === 1
                             ? 'start'
                             : colIndex === 0
