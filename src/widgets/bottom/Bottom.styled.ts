@@ -33,7 +33,7 @@ export const BottomFooter = styled.div`
   width: 91.67%;
 
   @media (max-height: 900px) {
-    margin-bottom: 40px;
+    margin-bottom: 52px;
   }
 `;
 
